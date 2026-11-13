@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+            padding: 30px 15px;
+        }
+        .box {
+            max-width: 420px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+        h1 { color: #b22222; text-align: center; }
+        input, button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin: 9px 0;
+        }
+        button {
+            background: #b22222;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .error { background: #ffe5e5; padding: 10px; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Hospital Login</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <input type="email" name="email"
+               placeholder="Hospital Email" required>
+        <input type="password" name="password"
+               placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Not registered?
+        <a href="/hospital-register">Register Hospital</a>
+    </p>
+    <a href="/">Back to Home</a>
+</div>
+</body>
+</html>

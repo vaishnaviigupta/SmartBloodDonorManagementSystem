@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Hospitals</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f3f6fa; }
+        .box { max-width: 1100px; margin: auto; background: white; padding: 20px; border-radius: 10px; overflow-x: auto; }
+        h1 { color: #b22222; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f7e5e5; }
+        button { padding: 7px; margin: 3px; cursor: pointer; }
+        .actions { white-space: nowrap; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Manage Hospitals</h1>
+    <p>Review registrations and update their approval status.</p>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Hospital</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for h in hospitals %}
+        <tr>
+            <td>{{ h[0] }}</td>
+            <td>{{ h[1] }}</td>
+            <td>{{ h[2] }}</td>
+            <td>{{ h[3] }}</td>
+            <td>{{ h[4] }}</td>
+            <td>{{ h[5] }}</td>
+            <td>{{ h[6] }}</td>
+            <td class="actions">
+                <form method="POST" action="/hospital-status/{{ h[0] }}">
+                    <button name="status" value="Approved">Approve</button>
+                    <button name="status" value="Rejected">Reject</button>
+                    <button name="status" value="Pending">Pending</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="8">No hospitals registered yet.</td></tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="/dashboard">Back to Admin Dashboard</a></p>
+</div>
+</body>
+</html>

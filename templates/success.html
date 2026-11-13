@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .success-box {
+            background: white;
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .check {
+            font-size: 60px;
+            color: green;
+        }
+
+        h1 {
+            color: #222;
+        }
+
+        p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            background: #d32f2f;
+            color: white;
+        }
+
+        a:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-box">
+
+        <div class="check">✓</div>
+
+        <h1>Registration Successful!</h1>
+
+        <p>
+            Thank you, <strong>{{ name }}</strong>!
+        </p>
+
+        <p>
+            Your donor details have been successfully registered.
+        </p>
+
+        <a href="/">Go to Home</a>
+        <a href="/register">Register Another Donor</a>
+
+    </div>
+
+</body>
+</html>

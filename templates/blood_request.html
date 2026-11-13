@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Blood Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+            padding: 25px 12px;
+        }
+        .box {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+        h1 { color: #b22222; }
+        input, select, textarea, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        button {
+            background: #b22222;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .error { background: #ffe5e5; padding: 10px; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Blood Request Form</h1>
+    <p>Enter the blood requirement for your hospital.</p>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>Blood Group</label>
+        <select name="blood_group" required>
+            <option value="">Select blood group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+
+        <label>Units Required</label>
+        <input type="number" name="units_needed"
+               min="1" max="100" required>
+
+        <label>Required Date</label>
+        <input type="date" name="required_date" required>
+
+        <label>Urgency</label>
+        <select name="urgency" required>
+            <option value="Normal">Normal</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Emergency">Emergency</option>
+        </select>
+
+        <label>Additional Notes (optional)</label>
+        <textarea name="notes" maxlength="500"
+                  rows="4" placeholder="Additional request information"></textarea>
+
+        <button type="submit">Submit Blood Request</button>
+    </form>
+
+    <a href="/hospital-dashboard">Back to Dashboard</a>
+</div>
+</body>
+</html>

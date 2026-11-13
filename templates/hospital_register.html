@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+            margin: 0;
+            padding: 30px 15px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0001;
+        }
+        h1 { color: #b22222; text-align: center; }
+        input, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+        input { border: 1px solid #ccc; }
+        button {
+            background: #b22222;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .message { padding: 10px; background: #e7f7e7; }
+        .error { padding: 10px; background: #ffe5e5; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Hospital Registration</h1>
+    <p>Register your hospital to submit blood requests.</p>
+
+    {% if success %}
+        <p class="message">{{ success }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <input name="hospital_name" placeholder="Hospital Name" required>
+        <input name="city" placeholder="City" required>
+        <input name="address" placeholder="Full Address" required>
+        <input name="contact_person" placeholder="Contact Person (optional)">
+        <input name="phone" placeholder="Contact Number" required>
+        <input name="email" type="email" placeholder="Email Address" required>
+        <input name="password" type="password"
+               placeholder="Create Password (minimum 8 characters)"
+               minlength="8" required>
+        <button type="submit">Register Hospital</button>
+    </form>
+
+    <p><a href="/">Back to Home</a></p>
+</div>
+</body>
+</html>

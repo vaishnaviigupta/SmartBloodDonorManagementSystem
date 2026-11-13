@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics & Reports | Smart Blood Donor</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #263238;
+        }
+
+        header {
+            background: #b71c1c;
+            color: white;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+            background: #8e1515;
+            padding: 10px 16px;
+            border-radius: 6px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 28px 18px;
+        }
+
+        .intro {
+            margin-bottom: 24px;
+        }
+
+        .intro h2 {
+            margin-bottom: 8px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card, .chart-card, .reports {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        .stat-card h3 {
+            color: #b71c1c;
+            margin: 0 0 10px;
+        }
+
+        .stat-card p {
+            color: #667085;
+            margin: 0;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .chart-card h3 {
+            margin-top: 0;
+            color: #b71c1c;
+        }
+
+        .chart-wrap {
+            position: relative;
+            height: 300px;
+        }
+
+        .reports {
+            margin-top: 26px;
+        }
+
+        .report-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .report-buttons a {
+            display: inline-block;
+            background: #b71c1c;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+
+        .report-buttons a:hover, .back:hover {
+            opacity: 0.88;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #667085;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🩸 Analytics & Reports</h1>
+    <a class="back" href="/dashboard">← Back to Admin Dashboard</a>
+</header>
+
+<main>
+    <section class="intro">
+        <h2>Project Analytics</h2>
+        <p>View donor distribution, blood request status and hospital approvals using database statistics.</p>
+    </section>
+
+    <section class="charts">
+
+        <div class="chart-card">
+            <h3>Blood Group Distribution</h3>
+            <div class="chart-wrap">
+                <canvas id="bloodChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Blood Request Status</h3>
+            <div class="chart-wrap">
+                <canvas id="requestChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Hospital Approval Status</h3>
+            <div class="chart-wrap">
+                <canvas id="hospitalChart"></canvas>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="reports">
+        <h2>Download Reports</h2>
+        <p>Download reports generated from your system's database.</p>
+
+        <div class="report-buttons">
+            <a href="/download-report/pdf">Download PDF Report</a>
+            <a href="/download-report/excel">Download Excel Report</a>
+        </div>
+
+        <p id="report-note" role="status" style="color:#667085; margin-top:14px;">
+            PDF and Excel download routes will be enabled in the next step.
+        </p>
+    </section>
+</main>
+
+<footer>
+    © 2026 Smart Blood Donor Management System
+</footer>
+
+<script>
+    const bloodLabels = {{ blood_group_labels | tojson }};
+    const bloodCounts = {{ blood_group_counts | tojson }};
+
+    const requestLabels = {{ request_status_labels | tojson }};
+    const requestCounts = {{ request_status_counts | tojson }};
+
+    const hospitalLabels = {{ hospital_status_labels | tojson }};
+    const hospitalCounts = {{ hospital_status_counts | tojson }};
+
+    new Chart(document.getElementById("bloodChart"), {
+        type: "pie",
+        data: {
+            labels: bloodLabels,
+            datasets: [{
+                data: bloodCounts,
+                backgroundColor: [
+                    "#b71c1c", "#ef5350", "#1565c0", "#64b5f6",
+                    "#6a1b9a", "#ba68c8", "#2e7d32", "#81c784"
+                ],
+                borderColor: "#ffffff",
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: "bottom" }
+            }
+        }
+    });
+
+    new Chart(document.getElementById("requestChart"), {
+        type: "bar",
+        data: {
+            labels: requestLabels,
+            datasets: [{
+                label: "Blood Requests",
+                data: requestCounts,
+                backgroundColor: ["#f9a825", "#2e7d32", "#c62828", "#1565c0"]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { precision: 0 }
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById("hospitalChart"), {
+        type: "doughnut",
+        data: {
+            labels: hospitalLabels,
+            datasets: [{
+                data: hospitalCounts,
+                backgroundColor: ["#f9a825", "#2e7d32", "#c62828"],
+                borderColor: "#d47070",
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: "bottom" }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

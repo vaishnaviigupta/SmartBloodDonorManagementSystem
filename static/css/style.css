@@ -1,0 +1,1248 @@
+/* =========================================
+   SMART BLOOD DONOR MANAGEMENT SYSTEM
+   MODERN PROFESSIONAL DESIGN
+   ========================================= */
+
+/* ---------- BASIC RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+header {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 22px 20px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ef4444;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    min-height: 430px;
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #e2e8f0
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    color: #0f172a;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #475569;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* ---------- HERO BUTTONS ---------- */
+
+.hero-buttons button {
+    background: #dc2626;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    padding: 14px 28px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.hero-buttons button:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   WHY CHOOSE US
+   ========================================= */
+
+.features {
+    background: #ffffff;
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 32px;
+    color: #0f172a;
+    margin-bottom: 40px;
+}
+
+
+/* ---------- FEATURE CONTAINER ---------- */
+
+.feature-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ---------- FEATURE CARD ---------- */
+
+.feature-card {
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 30px 20px;
+
+    min-height: 180px;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.feature-card h3 {
+    color: #dc2626;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   STATISTICS / OUR IMPACT
+   ========================================= */
+
+.statistics {
+    background: #f8fafc;
+
+    padding: 70px 8%;
+
+    text-align: center;
+}
+
+.statistics h2 {
+    font-size: 32px;
+    color: #0f172a;
+    margin-bottom: 40px;
+}
+
+
+/* ---------- STATS CONTAINER ---------- */
+
+.stats-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ---------- STAT CARD ---------- */
+
+.stat-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 30px 20px;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    color: #dc2626;
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    color: #475569;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   BLOOD GROUPS
+   ========================================= */
+
+.blood-groups {
+    background: #ffffff;
+
+    padding: 70px 8%;
+
+    text-align: center;
+}
+
+.blood-groups h2 {
+    font-size: 32px;
+
+    color: #0f172a;
+
+    margin-bottom: 40px;
+}
+
+
+/* ---------- BLOOD GROUP CONTAINER ---------- */
+
+.group-container {
+    max-width: 800px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ---------- BLOOD GROUP CIRCLE ---------- */
+
+.group {
+    width: 65px;
+    height: 65px;
+
+    background: #dc2626;
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+
+    transition: 0.3s;
+}
+
+.group:hover {
+    background: #b91c1c;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background: #0f172a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .feature-container,
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h2 {
+        font-size: 40px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .feature-container,
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .features,
+    .statistics,
+    .blood-groups {
+        padding: 50px 20px;
+    }
+
+    .features h2,
+    .statistics h2,
+    .blood-groups h2 {
+        font-size: 28px;
+    }
+}
+/* =========================
+   NEW PROFESSIONAL HERO
+   ========================= */
+
+.hero {
+    min-height: 560px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    color: white;
+    font-size: 56px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h2 span {
+    color: #ef4444;
+}
+
+.hero p {
+    color: #cbd5e1;
+    font-size: 19px;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons button {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-buttons button:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.hero-buttons .secondary-btn {
+    background: white;
+    color: #0f172a;
+}
+
+.hero-buttons .secondary-btn:hover {
+    background: #e2e8f0;
+}
+
+.hero-info {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.hero-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-info strong {
+    color: #ef4444;
+    font-size: 28px;
+}
+
+.hero-info small {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .hero h2 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .hero-info {
+        gap: 30px;
+    }
+}
+/* =========================
+   DONOR SEARCH
+   ========================= */
+
+.donor-search {
+    background: #f8fafc;
+    padding: 60px 20px;
+}
+
+.search-card {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 45px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.10);
+}
+
+.search-label {
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.search-card h2 {
+    color: #0f172a;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.search-card p {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.search-form select,
+.search-form input {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-form select:focus,
+.search-form input:focus {
+    border-color: #dc2626;
+}
+
+.search-form button {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #b91c1c;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .search-card {
+        padding: 30px 20px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donor Registration</title>
+
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🩸 Smart Blood Donor Management System</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#find-donor">Find Donor</a>
+            <a href="register.html">Register</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+
+    <main class="register-page">
+
+        <div class="register-card">
+
+            <span class="search-label">🩸 BECOME A DONOR</span>
+
+            <h2>Donor Registration</h2>
+
+            <p>
+                Register yourself as a blood donor and help save lives.
+            </p>
+
+
+            <form>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input
+                            type="number"
+                            placeholder="Enter age"
+                            min="18"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Blood Group</label>
+
+                        <select required>
+                            <option value="">
+                                Select Blood Group
+                            </option>
+
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label>City</label>
+
+                    <input
+                        type="text"
+                        placeholder="Enter your city"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+
+                        <input
+                            type="tel"
+                            placeholder="Enter phone number"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            placeholder="Enter email address"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label>Last Donation Date</label>
+
+                    <input type="date">
+                </div>
+
+
+                <button type="submit">
+                    Register as Donor
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>
+            © 2026 Smart Blood Donor Management System
+        </p>
+    </footer>
+
+</body>
+
+</html>
+/* =========================
+   PREMIUM REGISTRATION PAGE
+   ========================= */
+
+.registration-page {
+    min-height: 78vh;
+    padding: 70px 20px;
+    background: #f1f5f9;
+}
+
+.registration-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+/* LEFT CONTENT */
+
+.registration-info {
+    padding: 20px;
+}
+
+.registration-badge {
+    display: inline-block;
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.registration-info h1 {
+    font-size: 48px;
+    line-height: 1.12;
+    color: #0f172a;
+    margin: 0 0 20px;
+}
+
+.registration-info h1 span {
+    display: block;
+    color: #dc2626;
+}
+
+.registration-info > p {
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+/* BENEFITS */
+
+.benefit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.benefit-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: white;
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+}
+
+.benefit-item h3 {
+    margin: 0 0 4px;
+    color: #0f172a;
+    font-size: 16px;
+}
+
+.benefit-item p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* FORM CARD */
+
+.registration-card {
+    background: white;
+    padding: 42px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(15, 23, 42, 0.12);
+    border: 1px solid #e2e8f0;
+}
+
+.form-heading span {
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.form-heading h2 {
+    margin: 8px 0;
+    color: #0f172a;
+    font-size: 30px;
+}
+
+.form-heading p {
+    color: #64748b;
+    margin-bottom: 28px;
+}
+
+/* FORM */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #dc2626;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.10);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* BUTTON */
+
+.register-submit {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 9px;
+    background: #dc2626;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.register-submit span {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+.register-submit:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+}
+
+.form-note {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .registration-container {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+
+    .registration-info {
+        text-align: center;
+    }
+
+    .registration-info > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .benefit-list {
+        text-align: left;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .registration-page {
+        padding: 40px 15px;
+    }
+
+    .registration-info h1 {
+        font-size: 36px;
+    }
+
+    .registration-card {
+        padding: 28px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.about-section,
+.contact-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+/* ================= CHATBOT ================= */
+
+.chatbot-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #d32f2f;
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+
+    z-index: 1000;
+}
+
+
+#chatbot {
+    position: fixed;
+
+    right: 25px;
+    bottom: 95px;
+
+    width: 350px;
+    max-width: 90%;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 25px rgba(0,0,0,0.25);
+
+    overflow: hidden;
+
+    z-index: 1000;
+}
+
+
+.chatbot-hidden {
+    display: none;
+}
+
+
+.chat-header {
+    background: #d32f2f;
+    color: white;
+
+    padding: 15px;
+
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.chat-header button {
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+.chat-body {
+    height: 300px;
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+    background: #f5f5f5;
+}
+
+
+.chat-message {
+    padding: 10px 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    max-width: 80%;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+.chat-message.bot {
+    background: white;
+
+    margin-right: auto;
+}
+
+
+.chat-message.user {
+    background: #d32f2f;
+
+    color: white;
+
+    margin-left: auto;
+}
+
+
+.chat-input-area {
+    display: flex;
+
+    padding: 10px;
+
+    background: white;
+
+    gap: 8px;
+}
+
+
+.chat-input-area input {
+    flex: 1;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    outline: none;
+}
+
+
+.chat-input-area button {
+    padding: 10px 15px;
+
+    background: #d32f2f;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+/* Center Donor Search Results */
+#find-donor {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+#find-donor h2 {
+    text-align: center;
+}
+
+#find-donor form {
+    margin: 0 auto;
+}
+
+#find-donor .search-results {
+    width: 100%;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#find-donor .search-results table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#find-donor .search-results th,
+#find-donor .search-results td {
+    padding: 12px;
+    text-align: center;
+}
+/* Center donor results section */
+.donor-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Donor search result heading */
+.donor-results h2 {
+    text-align: center;
+    width: 100%;
+}
+
+/* Donor cards */
+.donor-results .donor-card {
+    width: 100%;
+    max-width: 700px;
+    margin: 15px auto;
+    box-sizing: border-box;
+}

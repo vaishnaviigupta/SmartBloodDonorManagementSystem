@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Donor</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+        }
+
+        header {
+            background: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-box {
+            width: 450px;
+            max-width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #d32f2f;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #333;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🩸 Smart Blood Donor Management System</h1>
+
+    </header>
+
+
+    <div class="form-box">
+
+        <h2>Edit Donor</h2>
+
+        <form method="POST">
+
+            <label>Name</label>
+
+            <input
+                type="text"
+                name="name"
+                value="{{ donor[1] }}"
+                required
+            >
+
+
+            <label>Age</label>
+
+            <input
+                type="number"
+                name="age"
+                value="{{ donor[2] }}"
+                required
+            >
+
+
+            <label>Blood Group</label>
+
+            <select name="blood_group" required>
+
+                <option value="A+" {% if donor[3] == "A+" %}selected{% endif %}>
+                    A+
+                </option>
+
+                <option value="A-" {% if donor[3] == "A-" %}selected{% endif %}>
+                    A-
+                </option>
+
+                <option value="B+" {% if donor[3] == "B+" %}selected{% endif %}>
+                    B+
+                </option>
+
+                <option value="B-" {% if donor[3] == "B-" %}selected{% endif %}>
+                    B-
+                </option>
+
+                <option value="AB+" {% if donor[3] == "AB+" %}selected{% endif %}>
+                    AB+
+                </option>
+
+                <option value="AB-" {% if donor[3] == "AB-" %}selected{% endif %}>
+                    AB-
+                </option>
+
+                <option value="O+" {% if donor[3] == "O+" %}selected{% endif %}>
+                    O+
+                </option>
+
+                <option value="O-" {% if donor[3] == "O-" %}selected{% endif %}>
+                    O-
+                </option>
+
+            </select>
+
+
+            <label>City</label>
+
+            <input
+                type="text"
+                name="city"
+                value="{{ donor[4] }}"
+                required
+            >
+
+
+            <label>Phone</label>
+
+            <input
+                type="text"
+                name="phone"
+                value="{{ donor[5] }}"
+                required
+            >
+
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                value="{{ donor[6] }}"
+            >
+
+
+            <label>Last Donation</label>
+
+            <input
+                type="date"
+                name="last_donation"
+                value="{{ donor[7] }}"
+            >
+
+
+            <button type="submit">
+                Update Donor
+            </button>
+
+        </form>
+
+
+        <a class="back" href="/manage-donors">
+            ← Back to Donor Management
+        </a>
+
+    </div>
+
+</body>
+
+</html>

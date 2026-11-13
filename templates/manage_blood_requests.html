@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Blood Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 25px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000015;
+            overflow-x: auto;
+        }
+        h1 { color: #b71c1c; }
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #b71c1c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #b71c1c;
+            color: white;
+        }
+        tr:nth-child(even) { background: #f9f9f9; }
+        select, button {
+            padding: 8px;
+            margin: 3px 0;
+        }
+        button {
+            background: #b71c1c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .empty {
+            padding: 20px;
+            background: #fff3f3;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Manage Blood Requests</h1>
+    <a class="back" href="/dashboard">← Back to Admin Dashboard</a>
+
+    {% if requests_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hospital</th>
+                <th>City</th>
+                <th>Blood Group</th>
+                <th>Units</th>
+                <th>Required Date</th>
+                <th>Urgency</th>
+                <th>Notes</th>
+                <th>Status</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in requests_list %}
+            <tr>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td>{{ item[3] }}</td>
+                <td>{{ item[4] }}</td>
+                <td>{{ item[5] }}</td>
+                <td>{{ item[6] }}</td>
+                <td>{{ item[7] or '-' }}</td>
+                <td>{{ item[8] }}</td>
+                <td>
+                    <form action="/blood-request-status/{{ item[0] }}" method="POST">
+                        <select name="status" required>
+                            <option value="Pending"
+                                {% if item[8] == 'Pending' %}selected{% endif %}>
+                                Pending
+                            </option>
+                            <option value="Approved"
+                                {% if item[8] == 'Approved' %}selected{% endif %}>
+                                Approved
+                            </option>
+                            <option value="Rejected"
+                                {% if item[8] == 'Rejected' %}selected{% endif %}>
+                                Rejected
+                            </option>
+                            <option value="Completed"
+                                {% if item[8] == 'Completed' %}selected{% endif %}>
+                                Completed
+                            </option>
+                        </select>
+                        <button type="submit">Save</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="empty">
+            No blood requests found. Submit a request from the hospital dashboard first.
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>

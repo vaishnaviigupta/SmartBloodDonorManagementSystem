@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 25px; background: #f3f6fa; }
+        .box { max-width: 900px; margin: auto; background: white; padding: 22px; border-radius: 12px; }
+        h1 { color: #b22222; }
+        a, button { display: inline-block; margin: 8px 8px 8px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f7e5e5; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Hospital Dashboard</h1>
+    <p>Welcome, {{ hospital_name }}</p>
+
+    <a href="/blood-request">Submit Blood Request</a>
+    <a href="/hospital-logout">Logout</a>
+
+    <h2>Your Blood Requests</h2>
+
+    {% if requests_list %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Blood Group</th>
+            <th>Units</th>
+            <th>Required Date</th>
+            <th>Urgency</th>
+            <th>Status</th>
+        </tr>
+        {% for item in requests_list %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[4] }}</td>
+            <td>{{ item[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>You have not submitted any blood requests yet.</p>
+    {% endif %}
+</div>
+</body>
+</html>

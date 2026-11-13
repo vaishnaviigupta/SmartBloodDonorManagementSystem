@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Smart Blood Donor</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        header {
+            background: #b71c1c;
+            color: white;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        header p {
+            margin: 7px 0 0;
+        }
+
+        .logout {
+            background: white;
+            color: #b71c1c;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 30px auto;
+        }
+
+        .welcome {
+            margin-bottom: 25px;
+        }
+
+        .welcome h2 {
+            color: #b71c1c;
+            margin-bottom: 8px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #00000010;
+            border-left: 5px solid #b71c1c;
+        }
+
+        .stat-card h3 {
+            margin: 0 0 12px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .stat-card .number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #b71c1c;
+        }
+
+        .section-title {
+            margin-bottom: 18px;
+            color: #333;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .action-card {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .action-card h3 {
+            margin-top: 0;
+            color: #b71c1c;
+        }
+
+        .action-card p {
+            line-height: 1.6;
+            color: #666;
+            min-height: 48px;
+        }
+
+        .action-button {
+            display: inline-block;
+            background: #b71c1c;
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .action-button:hover {
+            background: #8e1515;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>Smart Blood Donor Management</h1>
+        <p>Administrator Dashboard</p>
+    </div>
+
+    <a href="/logout" class="logout">Logout</a>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <h2>Welcome, Admin!</h2>
+        <p>Manage donors, hospitals and hospital blood requests from one place.</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h3>Total Registered Donors</h3>
+            <div class="number">{{ total_donors }}</div>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Blood Requests</h3>
+            <div class="number">{{ total_requests }}</div>
+        </div>
+
+        <div class="stat-card">
+            <h3>Cities Covered</h3>
+            <div class="number">{{ total_cities }}</div>
+        </div>
+
+        <div class="stat-card">
+            <h3>Blood Groups Available</h3>
+            <div class="number">{{ total_blood_groups }}</div>
+        </div>
+    </section>
+
+    <h2 class="section-title">Management Options</h2>
+
+    <section class="actions">
+
+        <div class="action-card">
+            <h3>Manage Donors</h3>
+            <p>View registered donors and edit or delete donor records.</p>
+            <a href="/manage-donors" class="action-button">
+                Manage Donors
+            </a>
+        </div>
+
+        <div class="action-card">
+            <h3>Manage Hospitals</h3>
+            <p>View hospital registrations and approve, reject or keep them pending.</p>
+            <a href="/manage-hospitals" class="action-button">
+                Manage Hospitals
+            </a>
+        </div>
+
+        <div class="action-card">
+            <h3>Manage Blood Requests</h3>
+            <p>View hospital blood requests and update their status.</p>
+            <a href="/manage-blood-requests" class="action-button">
+                Manage Blood Requests
+            </a>
+        </div>
+        
+        <div class="action-card">
+            <h3>Analytics & Reports</h3>
+            <p>View charts and download PDF or Excel reports.</p>
+            <a href="/analytics" class="action-button">
+                Open Analytics
+            </a>
+        </div>
+
+        <div class="action-card">
+            <h3>View Website</h3>
+            <p>Return to the main website and use the donor search feature.</p>
+            <a href="/" class="action-button">
+                Visit Homepage
+            </a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    Smart Blood Donor Management System
+</footer>
+
+</body>
+</html>

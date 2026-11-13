@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Blood Donor Management System</title>
+
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>🩸 Smart Blood Donor Management System</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="#find-donor">Find Donor</a>
+            <a href="/register">Register</a>
+            <a href="/login">Admin Login</a>
+            <a href="/hospital-register">Hospital Registration</a>
+            <a href="/hospital-login">Hospital Login</a>
+            <a href="/contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                🩸 Blood Donation • Emergency Support
+            </span>
+
+            <h2>
+                Every Drop Can<br>
+                <span>Save a Life.</span>
+            </h2>
+
+            <p>
+                Connecting blood donors with patients quickly,
+                safely, and efficiently during critical moments.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#find-donor">
+                    <button type="button">
+                        Find a Donor
+                    </button>
+                </a>
+
+                <a href="/register">
+                    <button type="button" class="secondary-btn">
+                        Become a Donor
+                    </button>
+                </a>
+
+            </div>
+
+            <!-- ================= DYNAMIC HERO STATISTICS ================= -->
+
+            <div class="hero-info">
+
+                <div>
+                    <strong>{{ total_donors }}</strong>
+                    <small>Registered Donors</small>
+                </div>
+
+                <div>
+                    <strong>{{ total_requests }}</strong>
+                    <small>Blood Requests</small>
+                </div>
+
+                <div>
+                    <strong>{{ total_cities }}</strong>
+                    <small>Cities Covered</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DONOR SEARCH ================= -->
+
+    <section class="donor-search" id="find-donor">
+
+        <div class="search-card">
+
+            <span class="search-label">
+                🩸 FIND A DONOR
+            </span>
+
+            <h2>Find a Blood Donor</h2>
+
+            <p>
+                Search for available donors by blood group and city.
+            </p>
+
+            <form class="search-form" action="/search" method="POST">
+
+                <select name="blood_group" required>
+                    <option value="">Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter City"
+                >
+
+                <button type="submit">Search Donors</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH RESULTS ================= -->
+
+    {% if searched %}
+
+    <section class="donor-results">
+
+        <h2>Donor Search Results</h2>
+
+        {% if donors %}
+
+            {% for donor in donors %}
+
+            <div class="donor-card">
+
+                <h3>{{ donor[0] }}</h3>
+                <p><strong>Age:</strong> {{ donor[1] }}</p>
+                <p><strong>Blood Group:</strong> {{ donor[2] }}</p>
+                <p><strong>City:</strong> {{ donor[3] }}</p>
+                <p><strong>Phone:</strong> {{ donor[4] }}</p>
+                <p><strong>Email:</strong> {{ donor[5] }}</p>
+                <p><strong>Last Donation:</strong> {{ donor[6] }}</p>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No donors found for the selected blood group and city.</p>
+
+        {% endif %}
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="features">
+
+        <h2>Why Choose Us?</h2>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+                <h3>✔ Verified Donors</h3>
+                <p>Only genuine and verified blood donors are listed.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>⚡ Fast Search</h3>
+                <p>Find nearby donors quickly using blood group and city.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🚑 Emergency Support</h3>
+                <p>Patients can request blood during emergencies.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🔒 Secure Data</h3>
+                <p>User information is stored safely and securely.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OUR IMPACT ================= -->
+
+    <section class="statistics">
+
+        <h2>Our Impact</h2>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h3>{{ total_donors }}</h3>
+                <p>Registered Donors</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ total_requests }}</h3>
+                <p>Blood Requests</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ total_cities }}</h3>
+                <p>Cities Covered</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>{{ total_blood_groups }}</h3>
+                <p>Blood Groups</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BLOOD GROUPS ================= -->
+
+    <section class="blood-groups">
+
+        <h2>Available Blood Groups</h2>
+
+        <div class="group-container">
+            <div class="group">A+</div>
+            <div class="group">A-</div>
+            <div class="group">B+</div>
+            <div class="group">B-</div>
+            <div class="group">AB+</div>
+            <div class="group">AB-</div>
+            <div class="group">O+</div>
+            <div class="group">O-</div>
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <p>© 2026 Smart Blood Donor Management System</p>
+    </footer>
+
+
+    <!-- ================= AI CHATBOT ================= -->
+
+    <div id="chatbot" class="chatbot-hidden">
+
+        <div class="chat-header">
+            🤖 Blood Donor Assistant
+            <button onclick="toggleChatbot()">×</button>
+        </div>
+
+        <div id="chat-body" class="chat-body">
+
+            <div class="chat-message bot">
+                Hello! 👋 I'm your Blood Donor Assistant.
+                Ask me about donor registration, finding donors,
+                or blood groups.
+            </div>
+
+        </div>
+
+        <div class="chat-input-area">
+
+            <input
+                type="text"
+                id="chat-input"
+                placeholder="Ask something..."
+                onkeypress="if(event.key === 'Enter') sendMessage()"
+            >
+
+            <button onclick="sendMessage()">Send</button>
+
+        </div>
+
+    </div>
+
+    <button class="chatbot-button" onclick="toggleChatbot()">🤖</button>
+
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+
+</body>
+</html>
